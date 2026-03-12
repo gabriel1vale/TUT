@@ -1,0 +1,26 @@
+{
+  "name": "tut",
+  "version": "1.0.0",
+  "description": "O **TUT** (Temporizador de Uso de Tela) é um projeto de Internet das Coisas (IoT) projetado para otimizar o tempo de uso de tela do usuário. O dispositivo visa melhorar a concentração e a saúde do usuário, incorporando um temporizador baseado no **método Pomodoro**, intervalos regulares para descanso dos olhos e do corpo, e a capacidade de monitorar o tempo de uso de tela.",
+  "main": "index.js",
+  "scripts": {
+    "generate-preview": "node scripts/generate-preview.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel1vale/TUT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gabriel1vale/TUT/issues"
+  },
+  "homepage": "https://github.com/gabriel1vale/TUT#readme",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "satori": "^0.25.0"
+  }
+}
