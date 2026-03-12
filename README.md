@@ -1,7 +1,5 @@
 # TUT - Temporizador de Uso de Tela
 
-![TUT Preview](Site/preview.png)
-
 O **TUT** (Temporizador de Uso de Tela) é um projeto de Internet das Coisas (IoT) projetado para otimizar o tempo de uso de tela do usuário. O dispositivo visa melhorar a concentração e a saúde do usuário, incorporando um temporizador baseado no **método Pomodoro**, intervalos regulares para descanso dos olhos e do corpo, e a capacidade de monitorar o tempo de uso de tela.
 
 ## Funcionalidades
