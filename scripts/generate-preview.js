@@ -4,8 +4,31 @@ const { readFileSync, writeFileSync } = require("fs");
 const { join } = require("path");
 
 async function main() {
-  const fontData = readFileSync("/usr/share/fonts/truetype/lato/Lato-Regular.ttf");
-  const fontDataBold = readFileSync("/usr/share/fonts/truetype/lato/Lato-Bold.ttf");
+  // Load system fonts with fallback paths for cross-platform compatibility
+  const fontPaths = [
+    "/usr/share/fonts/truetype/lato/Lato-Regular.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+  ];
+  const fontBoldPaths = [
+    "/usr/share/fonts/truetype/lato/Lato-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+  ];
+
+  function loadFirstAvailable(paths) {
+    for (const p of paths) {
+      try {
+        return readFileSync(p);
+      } catch {
+        // try next path
+      }
+    }
+    throw new Error(
+      "No suitable font found. Install Lato or DejaVu Sans fonts."
+    );
+  }
+
+  const fontData = loadFirstAvailable(fontPaths);
+  const fontDataBold = loadFirstAvailable(fontBoldPaths);
 
   const element = {
     type: "div",
@@ -16,7 +39,7 @@ async function main() {
         width: "100%",
         height: "100%",
         backgroundColor: "#f2f2f2",
-        fontFamily: "Roboto",
+        fontFamily: "Sans",
       },
       children: [
         // Header bar
@@ -233,13 +256,13 @@ async function main() {
     height: 500,
     fonts: [
       {
-        name: "Roboto",
+        name: "Sans",
         data: fontData,
         weight: 400,
         style: "normal",
       },
       {
-        name: "Roboto",
+        name: "Sans",
         data: fontDataBold,
         weight: 700,
         style: "normal",
